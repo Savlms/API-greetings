@@ -33,13 +33,13 @@ app.get('/api/hello', async (req: Request, res: Response) => {
 
     const city = geo.city || 'Unknown';
     const location = `${city}`;
-    const weatherUrl = `http://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${city}&aqi=no`
+    // const weatherUrl = `http://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&q=${city}&aqi=no`
 
     try {
         const ipResponse = await axios.get(`https://api.geoapify.com/v1/ipinfo?&apiKey=${weatherApiKey}`, {
             headers: userHeaders
          })
-        const weatherResponse = await axios.get(weatherUrl);
+        // const weatherResponse = await axios.get(weatherUrl);
         if(ipResponse.data) {
              console.log(ipResponse.data)
         }
@@ -57,8 +57,10 @@ app.get('/api/hello', async (req: Request, res: Response) => {
     } catch (error) {
         res.status(500).json({
             message: 'Failed to get weather data',
-        });
+        })
+        console.log(error);
     }
+    
 });
 
 app.listen(port, () => {

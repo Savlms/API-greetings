@@ -17,7 +17,7 @@
             "dest": "build/app.js"
         },
         {
-            "src": "/api/v1/(.*)",
+            "src": "/api/(.*)",
             "dest": "build/app.js"
         }
     ]

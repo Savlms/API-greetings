@@ -53,7 +53,7 @@ app.get('/api/hello', async (req: Request, res: Response) => {
         //     greeting: `Hello, ${visitorName}! The temperature is ${temperature} degrees Celsius in ${location}`
         // };
 
-        res.json(weatherResponse.data);
+        res.json(ipResponse.data);
     } catch (error) {
         res.status(500).json({
             message: 'Failed to get weather data',

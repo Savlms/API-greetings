@@ -1,13 +1,15 @@
 import express, { Request, Response } from 'express';
 import geoip from 'geoip-lite';
+import cors from 'cors'
 import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config()
 const app = express();
 const port = process.env.PORT;
-console.log()
 const ipApiKey = process.env.ipApiKey;
 const weatherApiKey = process.env.weatherApiKey
+
+app.use(cors());
 
 app.get('/api/hello', async (req: Request, res: Response) => {
     const client_name = req.query.client_name as string || 'Guest';

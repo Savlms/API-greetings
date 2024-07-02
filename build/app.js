@@ -16,12 +16,14 @@ const express_1 = __importDefault(require("express"));
 const geoip_lite_1 = __importDefault(require("geoip-lite"));
 const axios_1 = __importDefault(require("axios"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 console.log();
 const ipApiKey = process.env.ipApiKey;
 const weatherApiKey = process.env.weatherApiKey;
+app.use(cors());
 app.get('/api/hello', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const client_name = req.query.client_name || 'Guest';
     const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress);
